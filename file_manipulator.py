@@ -1,6 +1,20 @@
 import sys
 
-command = sys.argv[1]
+def command_checker(command):
+    hashmap =  {
+        'reverse': "reverse",
+        'copy': "copy",
+        'duplicate-contents': "duplicate-contents",
+        'replace-string': "replace-string"
+    }    
+    
+    if command in hashmap:
+        return hashmap[command]
+    else:
+        raise ValueError("This command is unknown. We know 4 command -> [reverse, copy, duplicate-contents, replace-string]")
+
+
+command = command_checker(sys.argv[1])
 output_data = ''
 
 if command == "reverse":
